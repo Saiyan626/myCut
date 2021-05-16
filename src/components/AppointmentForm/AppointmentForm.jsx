@@ -3,13 +3,13 @@ import {useState} from "react"
 import * as apptAPI from '../../utilities/appointments-api';
 
 export default function AppointmentForm() {
-  const barber = useLocation().state.barber;
+//   const barber = useLocation().state.barber;
 
   const [formData, setFormData] = useState({
-    barber: barber._id,
+    barber: "",
     startTime: ""
   })
-
+// {barber && barber.name}
   function handleChange(evt) {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
@@ -22,12 +22,14 @@ export default function AppointmentForm() {
 
   return (
     <div>
-      <h1>Book Appt for: {barber && barber.name}</h1>
+      <h1>Book Appt for: </h1>
       <form onSubmit={handleSubmit}>
+        <label>Barber</label>
+        <input type="text" name="barber" onChange={handleChange} />  
         <label>Date & Time</label>
         <input type="datetime-local" name="startTime" onChange={handleChange} />
         <button type="submit">Create Appointment</button>
-      </form>
+      </form>   
     </div>
   )
 }

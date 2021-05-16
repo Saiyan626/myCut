@@ -2,7 +2,9 @@ const Appointment = require('../../models/appointment');
 
 module.exports = {
     index,
-    createAppointment
+    createAppointment,
+    removeAppointment,
+    updateAppointment
 };
 
 async function index(req, res) {
@@ -16,4 +18,20 @@ async function createAppointment(req, res) {
     console.log(newAppointment)
     const appointments = await Appointment.find({ user:req.user._id })
     res.json(appointments)
+}
+
+async function removeAppointment(req, res) {
+    await Appointment.findOneAndDelete(
+        { _id: req.params.id }, 
+        (err, appointment) => appointment && err
+    );
+    res.json('');
+}
+
+async function updateAppointment(req,res){
+    await Appointment.findOneAndUpdate(
+        { _id: req.params.id }, 
+        (err, appointment) => appointment && err
+    );
+    res.json('');
 }
