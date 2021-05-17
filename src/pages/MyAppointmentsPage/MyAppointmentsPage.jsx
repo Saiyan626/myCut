@@ -10,9 +10,19 @@ export default function MyAppointmentsPage({ appointments,setAppointments }) {
     getAppointments();
   }, []);
   
+async function handleDelete(apptId) {
+  const appointments = await apptAPI.deleteAppt(apptId);
+  setAppointments(appointments);
+}
+
   return (
     <>
-      {appointments.map(a => <h2>{a.barber} {a.startTime}</h2>)}
+      {appointments.map(a => 
+        <>
+          <h2>{a.barber} {a.startTime}</h2> 
+          <button onClick={() => handleDelete(a._id)} >X</button>
+        </>
+      )}
     </>
   );
 } 

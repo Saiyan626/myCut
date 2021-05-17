@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const appointmentsController = require('../../controllers/api/appointments');
+const appointmentsCtrl = require('../../controllers/api/appointments');
 
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-router.get('/', ensureLoggedIn, appointmentsController.index )
+router.get('/', ensureLoggedIn, appointmentsCtrl.index)
 
-router.post('/', ensureLoggedIn, appointmentsController.createAppointment)
+router.post('/', ensureLoggedIn, appointmentsCtrl.createAppointment)
+
+router.delete('/:id', ensureLoggedIn, appointmentsCtrl.deleteAppointment)
 
 module.exports = router;

@@ -9,3 +9,7 @@ export function addAppointment(formData) {
 export function getAll() {
     return sendRequest(BASE_URL);
 }
+
+export function deleteAppt(apptId) {  
+    return sendRequest(`${BASE_URL}/${apptId}`, 'DELETE');
+}
