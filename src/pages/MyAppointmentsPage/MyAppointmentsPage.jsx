@@ -1,14 +1,18 @@
-import * as userService from '../../utilities/users-service';
+import { useEffect } from "react";
+import * as apptAPI from '../../utilities/appointments-api';
 
-export default function OrderHistoryPage() {
-  async function handleCheckToken() {
-    const expDate = await userService.checkToken();
-    console.log(expDate);
-  }
-
+export default function MyAppointmentsPage({ appointments,setAppointments }) {
+  useEffect(function() {
+    async function getAppointments() {
+      const appointments = await apptAPI.getAll();
+      setAppointments(appointments);
+    }
+    getAppointments();
+  }, []);
+  
   return (
     <>
-      <h1>My Appointments</h1>
+      {appointments.map(a => <h2>{a.barber} {a.startTime}</h2>)}
     </>
   );
 } 

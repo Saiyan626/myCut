@@ -11,7 +11,9 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link to="/barbers">Barbers</Link>
       &nbsp; | &nbsp;  
-      <Link to="/appointments/new">Appointments</Link>
+      <Link to="/appointments/new">Make an Appointment</Link>
+      &nbsp; | &nbsp;
+      <Link to="/appointments">My Appointments</Link>
       &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
