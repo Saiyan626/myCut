@@ -30,7 +30,7 @@ async function deleteAppointment(req, res) {
 }
 
 async function updateAppointment(req, res) {
-    await Appointment.findOneAndUpdate({ _id: req.params.id });
+    await Appointment.findOneAndUpdate({ _id: req.params.id }, {...req.body});
     const appointments = await Appointment.find({ user: req.user._id });
     res.json(appointments);
 }

@@ -13,13 +13,18 @@ export default function MyAppointmentsPage({ appointments,setAppointments }) {
   
 async function handleDelete(apptId) {
   const appointments = await apptAPI.deleteAppt(apptId);
-  setAppointments(appointments);
+  setAppointments(appointments);  
 }
 
+// async function handleUpdate(apptId) {
+//   const appointments = await apptAPI.updateAppt(apptId);
+//   setAppointments(appointments);  
+// }
+console.log(appointments)
   return (
     <>
-      {appointments.map(a => 
-      <Appointment appointment={a} handleDelete={handleDelete} />
+      {appointments.map((a,idx) => 
+      <Appointment idx={idx} appointment={a} handleDelete={handleDelete} />
       )}
     </>
   );

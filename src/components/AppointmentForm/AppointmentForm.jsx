@@ -1,15 +1,15 @@
 import {useLocation} from "react-router-dom"
 import {useState} from "react"
+import { useParams } from "react-router";
 import * as apptAPI from '../../utilities/appointments-api';
 
-export default function AppointmentForm( {setAppointments} ) {
-//   const barber = useLocation().state.barber;
+export default function AppointmentForm( {setAppointments,user} ) {
 
   const [formData, setFormData] = useState({
     barber: "",
     startTime: ""
   })
-// {barber && barber.name}
+
   function handleChange(evt) {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
@@ -22,7 +22,7 @@ export default function AppointmentForm( {setAppointments} ) {
 
   return (
     <div>
-      <h1>Book Appt for: </h1>
+      <h1>Book Appt for {user.name}: </h1>
       <form onSubmit={handleSubmit}>
         <label>Barber</label>
         <input type="text" name="barber" onChange={handleChange} />  

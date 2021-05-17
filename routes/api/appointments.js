@@ -10,4 +10,6 @@ router.post('/', ensureLoggedIn, appointmentsCtrl.createAppointment)
 
 router.delete('/:id', ensureLoggedIn, appointmentsCtrl.deleteAppointment)
 
+router.put('/:id', ensureLoggedIn, appointmentsCtrl.updateAppointment)
+
 module.exports = router;

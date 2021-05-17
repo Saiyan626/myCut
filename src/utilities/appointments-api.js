@@ -13,3 +13,7 @@ export function getAll() {
 export function deleteAppt(apptId) {  
     return sendRequest(`${BASE_URL}/${apptId}`, 'DELETE');
 }
+
+export function updateAppointment(formData, apptId) {
+    return sendRequest(`${BASE_URL}/${apptId}`, 'PUT', formData);
+}

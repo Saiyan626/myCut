@@ -1,3 +1,3 @@
 export default function Barbers() {
-  return <h1>Barbers</h1>
+  return <h1>Welcome to myCut</h1>
 }
