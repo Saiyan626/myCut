@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Appointment from "../../components/Appointment/Appointment";
 import * as apptAPI from '../../utilities/appointments-api';
 
 export default function MyAppointmentsPage({ appointments,setAppointments }) {
@@ -18,10 +19,7 @@ async function handleDelete(apptId) {
   return (
     <>
       {appointments.map(a => 
-        <>
-          <h2>{a.barber} {a.startTime}</h2> 
-          <button onClick={() => handleDelete(a._id)} >X</button>
-        </>
+      <Appointment appointment={a} handleDelete={handleDelete} />
       )}
     </>
   );
