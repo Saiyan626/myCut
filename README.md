@@ -7,17 +7,14 @@ by: U r i a n   M u r o
 
 ## Screenshots
 
-<img  src="" width="80%">
+<img  src="https://i.imgur.com/hIk0u8H.png" width="80%">
 
-> screenshot description.
 
-<img  src="" width="80%">
+<img  src="https://i.imgur.com/WLQnS3B.png" width="80%">
 
-> screenshot description.
 
-<img  src="" width="80%">
+<img  src="https://i.imgur.com/XWWxAUM.png" width="80%">
 
-> screenshot description.
 
 ## Technologies Used
 
@@ -30,9 +27,9 @@ by: U r i a n   M u r o
 
 ## Link to Application and Trello Board
 
-[myCut](http link)
+[myCut](https://my-cut.herokuapp.com/)
 
-[Trello Board](http link)
+[Trello Board](https://trello.com/b/EM97TR5r/mycut)
 
 ## Planned Future Enhancements
 

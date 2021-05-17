@@ -20,7 +20,6 @@ async function handleDelete(apptId) {
 //   const appointments = await apptAPI.updateAppt(apptId);
 //   setAppointments(appointments);  
 // }
-console.log(appointments)
   return (
     <>
       {appointments.map((a,idx) => 
