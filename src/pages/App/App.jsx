@@ -10,6 +10,9 @@ import './App.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   
+  const [appointments, setAppointments] = useState([]);
+
+
   return (
     <main className="App">
       { user ? 
@@ -20,7 +23,7 @@ export default function App() {
               <BarbersPage />
              </Route> 
             <Route exact path="/appointments/new">
-              <AppointmentForm />
+              <AppointmentForm setAppointments={setAppointments}  />
             </Route>
             <Redirect to="/barbers" />
           </Switch>

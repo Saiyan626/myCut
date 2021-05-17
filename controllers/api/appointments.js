@@ -13,11 +13,14 @@ async function index(req, res) {
 }
 
 async function createAppointment(req, res) {
-    req.body.user = req.user._id
-    const newAppointment = await Appointment.create(req.body)
-    console.log(newAppointment)
-    const appointments = await Appointment.find({ user:req.user._id })
-    res.json(appointments)
+    try{
+        req.body.user = req.user._id;
+        await Appointment.create(req.body);
+        const appointments = await Appointment.find({});
+        res.json(appointments)
+    } catch(err) {
+        res.status(400).json(err)
+      }
 }
 
 async function removeAppointment(req, res) {

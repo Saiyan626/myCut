@@ -2,7 +2,7 @@ import {useLocation} from "react-router-dom"
 import {useState} from "react"
 import * as apptAPI from '../../utilities/appointments-api';
 
-export default function AppointmentForm() {
+export default function AppointmentForm( {setAppointments} ) {
 //   const barber = useLocation().state.barber;
 
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ export default function AppointmentForm() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     const allAppts = await apptAPI.addAppointment(formData)
-    console.log(allAppts)
+    setAppointments(allAppts)
   }
 
   return (
